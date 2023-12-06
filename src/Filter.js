@@ -15,8 +15,12 @@ function Filter() {
     let lettersNotIncluded = ["f","r","k"]; // Letters that we know are not included in the word
     let lettersWithLocation = [ // Letters with known exact location
         {
-            'letter': "o", 
-            'index':"1"
+            'letter': 'o', 
+            'index':'1'
+        },
+        {
+            'letter': 'l',
+            'index': '3'
         }
     ]
 
@@ -56,7 +60,23 @@ function Filter() {
             return true
         })
     }
-    if(lettersNotIncluded.length > 0) wordsArray = notContainFilter(wordsArray, lettersNotIncluded)
+    if(lettersNotIncluded.length > 0) wordsArray = notContainFilter(wordsArray, lettersNotIncluded);
+
+    // filter Letters with known exact location
+    function filterByLocation(myArray, lettersWithLocation) {
+        return myArray.filter(word => {
+
+          for (let i = 0; i < lettersWithLocation.length; i++) {
+            const { letter, index } = lettersWithLocation[i];
+
+            if (word[index] !== letter) {
+              return false;
+            }
+          }
+          return true;
+        });
+    };
+    if(lettersWithLocation.length > 0) wordsArray = filterByLocation(wordsArray, lettersWithLocation);
 
   return (
     <div>
