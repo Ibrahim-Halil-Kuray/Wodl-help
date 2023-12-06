@@ -19,6 +19,8 @@ function Filter() {
             'index':"1"
         }
     ]
+    // 2 get words as an array
+    let wordsArray = words.split('\n');
     
   return (
     <div>
