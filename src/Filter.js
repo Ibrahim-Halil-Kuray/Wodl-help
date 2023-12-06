@@ -19,12 +19,18 @@ function Filter() {
             'index':"1"
         }
     ]
-    // 2 get words as an array
+
+    // get words as an array
     let wordsArray = words.split('\n');
-    
+   
   return (
     <div>
-        Result
+        {wordsArray.map((word, index) => {
+        return (
+            <div key={index}> {word}</div>
+            )
+
+        })}
     </div>
   )
 }
