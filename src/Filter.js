@@ -23,6 +23,13 @@ function Filter() {
     // get words as an array
     let wordsArray = words.split('\n');
    
+    // filter words by desired number of letters
+    function lenFilter(myArray, len) {
+        return  myArray.filter((word) => word.length === len);
+            
+    }
+    wordsArray = lenFilter(wordsArray, wordLength)
+    
   return (
     <div>
         {wordsArray.map((word, index) => {
