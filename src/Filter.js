@@ -6,6 +6,14 @@
 // - filter according to the letters known to occur in the word
 
 import React from 'react'
+import words from './Words' // list of words
 
-// list of words
-import words from './Words'
+function Filter() {
+  return (
+    <div>
+        Result
+    </div>
+  )
+}
+
+export default Filter
