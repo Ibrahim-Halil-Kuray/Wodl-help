@@ -45,6 +45,19 @@ function Filter() {
 
     if(includedLetters.length > 0) wordsArray = containFilter(wordsArray, includedLetters);
 
+    // filter words that do not contain letters known to not occur in the word
+    function notContainFilter(myArray, notContainLetters){
+        return myArray.filter((word)=>{
+            for (let index = 0; index < word.length; index++) {
+                if(notContainLetters.includes(word[index])){
+                    return false
+                }
+            }
+            return true
+        })
+    }
+    if(lettersNotIncluded.length > 0) wordsArray = notContainFilter(wordsArray, lettersNotIncluded)
+
   return (
     <div>
         {wordsArray.map((word, index) => {
